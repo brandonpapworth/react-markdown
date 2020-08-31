@@ -1,7 +1,6 @@
 'use strict'
 
-const React = require('react')
-const xtend = require('xtend')
+const React = require('react');
 const ReactIs = require('react-is');
 
 const defaultNodePosition = {
@@ -130,9 +129,10 @@ function getNodeProps(node, key, opts, renderer, parent, index) {
     case 'linkReference':
       assignDefined(
         props,
-        xtend(ref, {
-          href: opts.transformLinkUri ? opts.transformLinkUri(ref.href) : ref.href
-        })
+        {
+          ...ref,
+          href: opts.transformLinkUri ? opts.transformLinkUri(ref.href) : ref.href,
+        }
       )
       break
     case 'imageReference':
@@ -182,11 +182,12 @@ function getNodeProps(node, key, opts, renderer, parent, index) {
     default:
       assignDefined(
         props,
-        xtend(node, {
+        {
+          ...node,
           type: undefined,
           position: undefined,
-          children: undefined
-        })
+          children: undefined,
+        }
       )
   }
 

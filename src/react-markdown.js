@@ -1,6 +1,5 @@
 'use strict'
 
-const xtend = require('xtend')
 const unified = require('unified')
 const parse = require('remark-parse')
 const PropTypes = require('prop-types')
@@ -24,17 +23,18 @@ const ReactMarkdown = function ReactMarkdown(props) {
     throw new Error('Only one of `allowedTypes` and `disallowedTypes` should be defined')
   }
 
-  const renderers = xtend(defaultRenderers, props.renderers)
+  const renderers = props.renderers ? {...defaultRenderers, ...props.renderers} : defaultRenderers;
 
   const plugins = [[parse, parserOptions]].concat(props.plugins || [])
   const parser = plugins.reduce(applyParserPlugin, unified())
 
   const rawAst = parser.parse(src)
-  const renderProps = xtend(props, {
-    renderers: renderers,
-    definitions: getDefinitions(rawAst)
-  })
-  
+  const renderProps = {
+    ...props,
+    renderers,
+    definitions: getDefinitions(rawAst),
+  };
+
   const astPlugins = determineAstPlugins(props)
   // eslint-disable-next-line no-sync
   const transformedAst = parser.runSync(rawAst)

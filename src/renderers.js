@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types, react/no-multi-comp */
 'use strict'
 
-const xtend = require('xtend')
 const React = require('react')
 
 const supportsStringRender = parseInt((React.version || '16').slice(0, 2), 10) >= 16
@@ -57,7 +56,7 @@ function TableCell(props) {
   const coreProps = getCoreProps(props)
   return createElement(
     props.isHeader ? 'th' : 'td',
-    style ? xtend({style}, coreProps) : coreProps,
+    style ? ({style, ...coreProps}) : coreProps,
     props.children
   )
 }

@@ -4,7 +4,6 @@
  * You have been warned.
  **/
 const React = require('react')
-const xtend = require('xtend')
 const visit = require('unist-util-visit')
 const HtmlToReact = require('html-to-react')
 const symbols = require('../symbols')
@@ -181,7 +180,7 @@ module.exports = function getHtmlParserPlugin(config, props) {
     )
   }
 
-  const htmlConfig = xtend(defaultConfig, config || {})
+  const htmlConfig = config ? {...defaultConfig, ...config} : defaultConfig;
   const plugin = parseHtml.bind(null, htmlConfig)
   plugin.identity = symbols.HtmlParser
   return plugin
