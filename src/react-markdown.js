@@ -13,7 +13,7 @@ const symbols = require('./symbols')
 
 const allTypes = Object.keys(defaultRenderers)
 
-const ReactMarkdown = function ReactMarkdown(props) {
+function ReactMarkdown(props) {
   const src = props.source || props.children || ''
   const parserOptions = props.parserOptions
 
