@@ -1,5 +1,3 @@
-'use strict'
-
 const ReactMarkdown = require('./react-markdown')
 const htmlParser = require('./plugins/html-parser')
 

@@ -1,5 +1,3 @@
-'use strict'
-
 const React = require('react');
 const ReactIs = require('react-is');
 

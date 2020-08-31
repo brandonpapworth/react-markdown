@@ -1,5 +1,3 @@
-'use strict'
-
 const unified = require('unified')
 const parse = require('remark-parse')
 const PropTypes = require('prop-types')

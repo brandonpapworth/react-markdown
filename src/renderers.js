@@ -1,6 +1,4 @@
 /* eslint-disable react/prop-types, react/no-multi-comp */
-'use strict'
-
 const React = require('react')
 
 const supportsStringRender = parseInt((React.version || '16').slice(0, 2), 10) >= 16

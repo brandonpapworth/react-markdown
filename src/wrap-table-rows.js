@@ -1,5 +1,3 @@
-'use strict'
-
 const visit = require('unist-util-visit')
 
 module.exports = node => {

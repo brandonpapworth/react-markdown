@@ -10,9 +10,12 @@
 
   "env": {
     "production": {
-      "plugins": [["transform-react-remove-prop-types", {
-        "removeImport": true
-      }]]
+      "plugins": [
+        ["transform-react-remove-prop-types", {
+          "removeImport": true
+        }],
+        "@babel/plugin-transform-strict-mode"
+      ]
     }
   }
 }
