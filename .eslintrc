@@ -2,11 +2,11 @@
   "extends": ["sanity", "prettier", "plugin:react/recommended"],
   "plugins": ["react"],
   "env": {"node": true, "browser": true},
-  "parserOptions": {"ecmaVersion": 2020, "ecmaFeatures": {"jsx": true}},
+  "parserOptions": {"ecmaVersion": 11, "ecmaFeatures": {"jsx": true}},
   "rules": {"strict": 0, "complexity": ["warn", 15]},
   "settings": {
     "react": {
-      "version": "15.0"
+      "version": "16.13"
     }
   }
 }
